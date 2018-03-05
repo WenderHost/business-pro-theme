@@ -241,7 +241,7 @@ function business_before_footer_widget_area() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'business_scripts_styles', 20 );
+add_action( 'wp_enqueue_scripts', 'business_scripts_styles', 99 );
 /**
  * Enqueue theme scripts and styles.
  *
@@ -250,6 +250,9 @@ add_action( 'wp_enqueue_scripts', 'business_scripts_styles', 20 );
  * @return void
  */
 function business_scripts_styles() {
+
+	wp_dequeue_style( sanitize_title_with_dashes( CHILD_THEME_NAME ) );
+	wp_enqueue_style( 'business-pro-min', get_stylesheet_directory_uri() . '/assets/styles/min/style.min.css', [], filemtime( get_stylesheet_directory() . '/assets/styles/min/style.min.css') );
 
 	// Remove Simple Social Icons CSS (included with theme).
 	wp_dequeue_style( 'simple-social-icons-font' );
