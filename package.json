@@ -16,6 +16,7 @@
     "gulp-csscomb": "^3.0.8",
     "gulp-cssnano": "^2.1.0",
     "gulp-filter": "*",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.4.0",
     "gulp-notify": "*",
     "gulp-pixrem": "^1.0.0",
@@ -29,7 +30,8 @@
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
     "gulp-wp-pot": "^1.1.1",
-    "gulp-zip": "*"
+    "gulp-zip": "*",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -9,30 +9,32 @@
  */
 
 // Require our dependencies.
-var autoprefixer = require('autoprefixer'),
-	browsersync  = require('browser-sync'),
-	mqpacker     = require('css-mqpacker'),
-	gulp         = require('gulp'),
-	beautify     = require('gulp-cssbeautify'),
-	cache        = require('gulp-cached'),
-	cleancss     = require('gulp-clean-css'),
-	csscomb      = require('gulp-csscomb'),
-	cssnano      = require('gulp-cssnano'),
-	filter       = require('gulp-filter'),
-	imagemin     = require('gulp-imagemin'),
-	notify       = require('gulp-notify'),
-	pixrem       = require('gulp-pixrem'),
-	plumber      = require('gulp-plumber'),
-	postcss      = require('gulp-postcss'),
-	rename       = require('gulp-rename'),
-	replace      = require('gulp-replace'),
-	s3           = require('gulp-s3-publish'),
-	sass         = require('gulp-sass'),
-	sort         = require('gulp-sort'),
-	sourcemaps   = require('gulp-sourcemaps'),
-	uglify       = require('gulp-uglify'),
-	wpPot        = require('gulp-wp-pot'),
-	zip          = require('gulp-zip');
+var argv         = require('minimist')(process.argv.slice(2));
+var gulpif       = require('gulp-if');
+var autoprefixer = require('autoprefixer');
+var	browsersync  = require('browser-sync');
+var	mqpacker     = require('css-mqpacker');
+var	gulp         = require('gulp');
+var	beautify     = require('gulp-cssbeautify');
+var	cache        = require('gulp-cached');
+var	cleancss     = require('gulp-clean-css');
+var	csscomb      = require('gulp-csscomb');
+var	cssnano      = require('gulp-cssnano');
+var	filter       = require('gulp-filter');
+var	imagemin     = require('gulp-imagemin');
+var	notify       = require('gulp-notify');
+var	pixrem       = require('gulp-pixrem');
+var	plumber      = require('gulp-plumber');
+var	postcss      = require('gulp-postcss');
+var	rename       = require('gulp-rename');
+var	replace      = require('gulp-replace');
+var	s3           = require('gulp-s3-publish');
+var	sass         = require('gulp-sass');
+var	sort         = require('gulp-sort');
+var	sourcemaps   = require('gulp-sourcemaps');
+var	uglify       = require('gulp-uglify');
+var	wpPot        = require('gulp-wp-pot');
+var	zip          = require('gulp-zip');
 
 // Set assets paths.
 var paths = {
@@ -40,7 +42,7 @@ var paths = {
 	images:  ['assets/images/*', '!assets/images/*.svg'],
 	php:     ['./*.php', './**/*.php', './**/**/*.php'],
 	scripts: ['assets/scripts/*.js', '!assets/scripts/min/'],
-	styles:  ['assets/styles/*.scss', '!assets/styles/min/']
+	styles:  ['assets/styles/*.scss', 'assets/styles/components/*.scss', '!assets/styles/min/']
 };
 
 /**
@@ -119,17 +121,25 @@ gulp.task('styles', function () {
 		}))
 
 		// Source maps init
+		/*
+		.pipe(function(){
+			return gulpif(enabled.maps, sourcemaps.init());
+		})
+		*/
 		.pipe(sourcemaps.init())
 
 		// Process sass
 		.pipe(sass({
-			outputStyle: 'expanded'
+			outputStyle: 'nested',
+			precision: 10,
+			includePaths: ['.']
 		}))
 
 		// Pixel fallbacks for rem units.
 		.pipe(pixrem())
 
 		// Parse with PostCSS plugins.
+		/*
 		.pipe(postcss([
 			autoprefixer({
 				browsers: AUTOPREFIXER_BROWSERS
@@ -138,24 +148,23 @@ gulp.task('styles', function () {
 				sort: true
 			}),
 		]))
+		/**/
 
 		// Format non-minified CSS.
-		.pipe(csscomb())
+		//.pipe(csscomb())
 
 		// Output non minified css to theme directory.
-		.pipe(gulp.dest('./'))
-
-		// Inject changes via browsersync.
-		.pipe(browsersync.reload({
-			stream: true
-		}))
+		//.pipe(gulp.dest('./'))
 
 		// Process sass again.
+		/*
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}))
+		/**/
 
 		// Combine similar rules.
+		/*
 		.pipe(cleancss({
 			level: {
 				2: {
@@ -163,14 +172,17 @@ gulp.task('styles', function () {
 				}
 			}
 		}))
+		/**/
 
 		// Minify and optimize style.css again.
+		/*
 		.pipe(cssnano({
 			safe: false,
 			discardComments: {
 				removeAll: true,
 			},
 		}))
+		*/
 
 		// Add .min suffix.
 		.pipe(rename({
@@ -178,7 +190,7 @@ gulp.task('styles', function () {
 		}))
 
 		// Write source map.
-		.pipe(sourcemaps.write('./'))
+		.pipe(sourcemaps.write('.'))
 
 		// Output the compiled sass to this directory.
 		.pipe(gulp.dest('assets/styles/min'))
@@ -187,7 +199,12 @@ gulp.task('styles', function () {
 		.pipe(filter('**/*.css'))
 
 		// Notify on successful compile (uncomment for notifications).
-		.pipe(notify("Compiled: <%= file.relative %>"));
+		.pipe(notify("Compiled: <%= file.relative %>"))
+
+		// Inject changes via browsersync.
+		.pipe(browsersync.reload({
+			stream: true
+		}));
 
 });
 
@@ -313,8 +330,9 @@ gulp.task('zip', function () {
 gulp.task('watch', function () {
 
 	// HTTPS.
+	/*
 	browsersync({
-		proxy: 'https://business.dev',
+		proxy: 'http://foxelectronics.loco',
 		port: 8000,
 		notify: false,
 		open: false,
@@ -323,17 +341,17 @@ gulp.task('watch', function () {
 			"cert": "/Users/seothemes/.valet/Certificates/business.dev.crt"
 		}
 	});
+	*/
 
 	/**
 	 * Non-HTTPS browsersync.
 	 *
 	 * Use this instead if you are not using a self signed
 	 * certificate on your local development environment.
-	 *
-	 * browsersync( {
-	 *     proxy: 'business.dev'
-	 * } );
 	 */
+	 browsersync( {
+	     proxy: 'http://foxelectronics.loco'
+	 } );
 
 	// Run tasks when files change.
 	gulp.watch(paths.styles, ['styles']);

@@ -7,7 +7,7 @@
     }
 }
 
-.front-page-1,
+/*.front-page-1,*/
 .front-page-2,
 .front-page-3,
 .front-page-4,
@@ -27,18 +27,26 @@
 /* ### Front Page 1 */
 
 .front-page-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 20vh;
+    padding: 140px 0 10vh;
+
     background-color: transparent;
     background-size: cover !important;
     background-position: center !important;
-    padding: 18rem 0 12rem;
+    /*padding: 18rem 0 12rem;*/
     position: relative;
     color: $white;
     overflow: hidden;
     text-align: center;
     @include clearfix;
+    /*
     @include breakpoint(md) {
-        padding: 30vh 0 25vh;
+        padding: 15vh 0 8vh;
     }
+    */
     .wrap {
         position: relative;
         z-index: 2;
