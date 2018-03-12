@@ -7,7 +7,6 @@
     }
 }
 
-/*.front-page-1,*/
 .front-page-2,
 .front-page-3,
 .front-page-4,
@@ -22,6 +21,12 @@
         text-transform: uppercase;
     }
 }
+.front-page-2{
+    padding: 4rem;
+    @include breakpoint(md){
+        padding: 6rem 0;
+    }
+}
 
 
 /* ### Front Page 1 */
@@ -31,7 +36,7 @@
     flex-direction: column;
     justify-content: center;
     min-height: 20vh;
-    padding: 140px 0 10vh;
+    padding: 140px 0 12vh;
 
     background-color: transparent;
     background-size: cover !important;
@@ -42,11 +47,11 @@
     overflow: hidden;
     text-align: center;
     @include clearfix;
-    /*
-    @include breakpoint(md) {
-        padding: 15vh 0 8vh;
+
+    @media (min-width: 768px){
+        padding: 60px 0 60px;
     }
-    */
+
     .wrap {
         position: relative;
         z-index: 2;
@@ -54,7 +59,7 @@
     .widget {
         @include breakpoint(sm) {
             max-width: map-get($breakpoints, sm);
-            margin: auto !important;
+            margin: auto;
         }
         .widget-wrap {
             p {
@@ -72,6 +77,31 @@
         }
         @include breakpoint(xl) {
             font-size: 3em;
+        }
+    }
+
+    .hero-right{
+        text-align: left;
+        margin-left: 5rem;
+        background: rgba(red($foxblue),green($foxblue),blue($foxblue),0.30);
+        padding: 1.5rem 2rem 2rem 2rem;
+        border-radius: 3px;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.75);
+    }
+
+    @media (max-width: 1024px){
+        .one-third,
+        .two-thirds{
+            width: 100%;
+            float: none;
+            margin-bottom: 5rem;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        .hero-right{
+            margin-left: 0;
         }
     }
 }
