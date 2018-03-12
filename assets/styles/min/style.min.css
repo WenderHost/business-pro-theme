@@ -695,6 +695,21 @@ input[type="submit"] {
   input[type="submit"].small {
     font-size: 12px;
     font-size: 1.2rem; }
+  .button.wide,
+  button.wide,
+  input[type="button"].wide,
+  input[type="reset"].wide,
+  input[type="submit"].wide {
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .button.large,
+  button.large,
+  input[type="button"].large,
+  input[type="reset"].large,
+  input[type="submit"].large {
+    font-size: 24px;
+    padding: .6em 1em; }
   .button:disabled, .button:disabled:hover,
   button:disabled,
   button:disabled:hover,
@@ -1195,7 +1210,9 @@ img.alignright,
 .custom-logo {
   width: auto;
   height: 65px;
-  height: 6.5rem; }
+  height: 6.5rem;
+  margin: 15px 0;
+  margin: 1.5rem 0; }
 
 /* ## Header Right Widget Area
 --------------------------------------------- */
@@ -1819,6 +1836,47 @@ p.entry-meta {
 .pingback:last-of-type p {
   margin-bottom: 0; }
 
+/* Widgets */
+.featuredpost article {
+  text-align: left;
+  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  margin-left: 30px; }
+  .featuredpost article .entry-content {
+    clear: none; }
+    .featuredpost article .entry-content:before {
+      font: normal normal normal 24px FontAwesome;
+      content: '\f11d';
+      float: left;
+      clear: none;
+      margin: -2px 0 0 -30px;
+      color: #0067a6; }
+    .featuredpost article .entry-content p {
+      padding: 0; }
+
+.widget_nav_menu ul.menu {
+  margin-top: 15px;
+  margin-top: 1.5rem;
+  margin-left: 20px;
+  margin-left: 2rem; }
+  .widget_nav_menu ul.menu li {
+    display: block;
+    width: 100%;
+    font-size: 18px; }
+    .widget_nav_menu ul.menu li a {
+      padding: 0;
+      color: #0067a6;
+      text-transform: none;
+      font-family: "Hind", Helvetica, Arial, sans-serif;
+      font-weight: normal; }
+      .widget_nav_menu ul.menu li a:before {
+        font: normal normal normal 24px FontAwesome;
+        content: '\f11d';
+        float: left;
+        clear: none;
+        margin: -8px 8px 0 -20px;
+        color: #0067a6; }
+
 /* ## Widgets
 --------------------------------------------- */
 .sidebar-primary {
@@ -2271,7 +2329,6 @@ div.lSSlideOuter ul.testimonials-list {
 .home .site-inner {
   padding: 0; }
 
-/*.front-page-1,*/
 .front-page-2,
 .front-page-3,
 .front-page-4,
@@ -2294,13 +2351,20 @@ div.lSSlideOuter ul.testimonials-list {
   .front-page-6 .widget-title {
     text-transform: uppercase; }
 
+.front-page-2 {
+  padding: 40px;
+  padding: 4rem; }
+  @media (min-width: 896px) {
+    .front-page-2 {
+      padding: 6rem 0; } }
+
 /* ### Front Page 1 */
 .front-page-1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 20vh;
-  padding: 140px 0 10vh;
+  padding: 140px 0 12vh;
   background-color: transparent;
   background-size: cover !important;
   background-position: center !important;
@@ -2309,23 +2373,21 @@ div.lSSlideOuter ul.testimonials-list {
   color: #ffffff;
   overflow: hidden;
   text-align: center;
-  clear: both;
-  /*
-    @include breakpoint(md) {
-        padding: 15vh 0 8vh;
-    }
-    */ }
+  clear: both; }
   .front-page-1:before, .front-page-1:after {
     clear: both;
     display: block;
     content: ''; }
+  @media (min-width: 768px) {
+    .front-page-1 {
+      padding: 60px 0 60px; } }
   .front-page-1 .wrap {
     position: relative;
     z-index: 2; }
   @media (min-width: 768px) {
     .front-page-1 .widget {
       max-width: 768px;
-      margin: auto !important; } }
+      margin: auto; } }
   .front-page-1 .widget .widget-wrap p {
     color: #f0f1f2;
     margin-bottom: 1.618em; }
@@ -2338,6 +2400,26 @@ div.lSSlideOuter ul.testimonials-list {
   @media (min-width: 1280px) {
     .front-page-1 h1 {
       font-size: 3em; } }
+  .front-page-1 .hero-right {
+    text-align: left;
+    margin-left: 50px;
+    margin-left: 5rem;
+    background: rgba(0, 103, 166, 0.3);
+    padding: 15px 20px 20px 20px;
+    padding: 1.5rem 2rem 2rem 2rem;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75); }
+  @media (max-width: 1024px) {
+    .front-page-1 .one-third,
+    .front-page-1 .two-thirds {
+      width: 100%;
+      float: none;
+      margin-bottom: 5rem; }
+      .front-page-1 .one-third:last-child,
+      .front-page-1 .two-thirds:last-child {
+        margin-bottom: 0; }
+    .front-page-1 .hero-right {
+      margin-left: 0; } }
 
 /* ### Front Page 2 */
 .front-page-2 {
