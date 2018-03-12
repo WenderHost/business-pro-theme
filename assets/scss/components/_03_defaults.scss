@@ -48,8 +48,10 @@ p {
 }
 
 a {
-    color: $dark;
+    color: $foxblue;
     word-wrap: break-word;
+    text-decoration: none;
+
     @include transition;
     &:hover {
         color: $gray;
