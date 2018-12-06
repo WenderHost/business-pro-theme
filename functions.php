@@ -296,6 +296,9 @@ include_once( get_stylesheet_directory() . '/includes/helpers.php' );
 // Load Customizer settings and output.
 include_once( get_stylesheet_directory() . '/includes/customize.php' );
 
+// Footer customizations.
+include_once( get_stylesheet_directory() . '/includes/footer.php' );
+
 // Load default settings for the theme.
 include_once( get_stylesheet_directory() . '/includes/defaults.php' );
 
