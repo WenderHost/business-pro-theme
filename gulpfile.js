@@ -14,11 +14,23 @@ gulp.task('sass',function(){
       }))
       .pipe(sourcemaps.write(''))
       .pipe(gulp.dest('assets/css'));
+
   gulp.src('assets/scss/woocommerce.scss')
       .pipe(sourcemaps.init())
       .pipe(sass({
         includePaths: ['components'],
         outFile: 'assets/css/woocommerce.css',
+        sourceMap: true,
+        outputStyle: 'compressed'
+      }))
+      .pipe(sourcemaps.write(''))
+      .pipe(gulp.dest('assets/css'));
+
+  gulp.src('assets/scss/foxselect.scss')
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+        includePaths: ['components'],
+        outFile: 'assets/css/foxselect.css',
         sourceMap: true,
         outputStyle: 'compressed'
       }))

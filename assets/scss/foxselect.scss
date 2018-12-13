@@ -1,0 +1,24 @@
+/**
+ * Compile minimum styles to replicate theme styling
+ */
+
+// Minimum neccessary Bootstrap files
+@import "min-bootstrap/functions";
+@import "min-bootstrap/variables";
+@import "min-bootstrap/mixins";
+@import "min-bootstrap/root";
+@import 'min-bootstrap/reboot';
+
+@import 'components/_01_utilities';
+
+header.site-title,
+footer.site-footer{
+  @import 'components/_03_defaults';
+}
+
+@import 'components/_04_layout';
+@import 'components/_06_header';
+@import 'components/_07_menus';
+@import 'components/_11_footer';
+@import 'components/_12_plugins';
+@import 'components/_17_bootstrap-adjustments';

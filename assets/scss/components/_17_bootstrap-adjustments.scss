@@ -1,0 +1,75 @@
+/* Bootstrap Adjustments */
+.genesis-skip-link,
+.site-title,
+.site-description{
+  display: none;
+}
+
+@mixin fontstyles($fontFamily: $font-body) {
+  font-family: $fontFamily;
+  font-weight: $normal;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/** Header **/
+header.site-header .menu{
+  font-size: 10px;
+  @include fontstyles($font-heading);
+  margin-bottom: 0;
+
+  li{
+    font-size: .75rem;
+  }
+}
+.custom-logo{
+  height: 4.063rem;
+  margin: .9375rem 0;
+}
+
+/** Content Area **/
+.content-sidebar-wrap{
+  padding: 4.25rem 0; /* 6.25rem = 100px */
+}
+.foxselect{
+  min-height: 500px;
+}
+
+/** Footer **/
+footer.site-footer{
+  @include fontstyles();
+
+  .back-to-top{
+    height: 1.876rem;
+    width: 1.876rem;
+    bottom: 3.58rem;;
+
+    &:after{
+      top: .9rem;
+      left: 0.9rem;
+    }
+    &:before{
+      top: .9rem;
+      left: 0.6rem;
+    }
+  }
+
+  .footer-widgets{
+    padding: 6.25rem 0;
+
+    font-size: 1.0625rem;
+
+    h3.widgettitle{
+      font-size: 1.0rem;
+    }
+  }
+  & > .wrap{
+    padding-bottom: 3.75rem;
+  }
+
+  & > .wrap > p{
+    font-size: 1.0rem;
+  }
+}
