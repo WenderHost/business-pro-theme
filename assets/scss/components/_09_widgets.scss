@@ -47,5 +47,63 @@
         font-weight: normal;
       }
     }
+
+    &#menu-applications,
+    &#menu-products{
+      margin-left: 0;
+
+      li{
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 0;
+
+        a{
+          background-color: #000;
+          border: 2px solid #000;
+          border-radius: 3px;
+          color: #fff;
+          padding: 1rem;
+
+          &:hover{
+            background-color: #fff;
+            color: #000;
+          }
+
+          &:before{
+            content: '';
+            line-height: 1;
+            float: none;
+            margin: 0;
+          }
+        }
+      }
+
+    }
+
+    &#menu-applications{
+      li{
+        a{
+          background-color: $foxblue;
+          border-color: $foxblue;
+
+          &:hover{
+            color: $foxblue;
+          }
+        }
+      }
+    }
+    &#menu-products{
+      li{
+        a{
+          background-color: $accent;
+          border-color: $accent;
+
+          &:hover{
+            color: $accent;
+          }
+        }
+      }
+    }
   }
 }
