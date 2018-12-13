@@ -9,9 +9,12 @@
   "author": "Michael Wender",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.23.6",
+    "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^3.2.1",
     "gulp-sourcemaps": "^2.6.4"
+  },
+  "resolutions": {
+    "natives": "1.1.3"
   }
 }
