@@ -304,3 +304,6 @@ include_once( get_stylesheet_directory() . '/includes/defaults.php' );
 
 // Load theme's recommended plugins.
 include_once( get_stylesheet_directory() . '/includes/plugins.php' );
+
+// Additional includes
+include_once( get_stylesheet_directory() . '/includes/wp-html-email.php' );
