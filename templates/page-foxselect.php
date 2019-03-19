@@ -24,11 +24,14 @@ function enqueue_scripts(){
   foreach ($scripts as $script) {
     if( '.js' == substr( $script, -3 ) ){
       wp_enqueue_script( 'foxselect', get_stylesheet_directory_uri() . '/assets/scripts/foxselect/static/js/' . basename( $script ), null, null, true );
+      /*
+      // 12/14/2018 (14:27) - moved the AUTH_ROOT inside api-config.js in the React app
       wp_localize_script( 'foxselect', 'wpvars', [
         'root' => esc_url_raw( rest_url() ),
         'nonce' => wp_create_nonce( 'wp_rest' ),
         'authroute' => 'jwt-auth/v1/token',
       ]);
+      */
     }
   }
 
