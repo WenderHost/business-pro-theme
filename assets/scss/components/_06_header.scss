@@ -187,4 +187,15 @@
         max-width: map-get($breakpoints,sm);
         margin: 0 auto;
     }
+
+    .header-content{
+
+      width: 50%;
+      text-align: left;
+
+      p{
+        margin: 0 0 2rem 0;
+        max-width: 100%;
+      }
+    }
 }

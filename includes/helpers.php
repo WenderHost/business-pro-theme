@@ -527,6 +527,12 @@ add_action( 'genesis_after_header', 'business_page_header_close', 28 );
  * @return void
  */
 function business_page_header_title() {
+	global $post;
+	$content = get_post_meta( $post->ID, 'content', true );
+	if( $content ){
+		echo '<div class="header-content">' . $content . '</div>';
+		return;
+	}
 
 	// Add post titles back inside posts loop.
 	if ( is_home() || is_archive() || is_category() || is_tag() || is_tax() || is_search() || is_page_template( 'page_blog.php' ) ) {
