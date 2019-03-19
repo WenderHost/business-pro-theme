@@ -496,7 +496,6 @@ function business_custom_header() {
 
 }
 
-add_action( 'genesis_after_header', 'business_page_header_open', 20 );
 /**
  * Page header opening markup.
  *
@@ -505,12 +504,10 @@ add_action( 'genesis_after_header', 'business_page_header_open', 20 );
  * @return void
  */
 function business_page_header_open() {
-
 	echo '<section class="page-header" role="banner" ' . business_custom_header() . '><div class="wrap">';
-
 }
+add_action( 'genesis_after_header', 'business_page_header_open', 20 );
 
-add_action( 'genesis_after_header', 'business_page_header_close', 28 );
 /**
  * Page header closing markup.
  *
@@ -519,12 +516,10 @@ add_action( 'genesis_after_header', 'business_page_header_close', 28 );
  * @return void
  */
 function business_page_header_close() {
-
 	echo '</div></section>';
-
 }
+add_action( 'genesis_after_header', 'business_page_header_close', 28 );
 
-add_action( 'genesis_after_header', 'business_page_header_title', 24 );
 /**
  * Display title in page header.
  *
@@ -573,8 +568,8 @@ function business_page_header_title() {
 	}
 
 }
+add_action( 'genesis_after_header', 'business_page_header_title', 24 );
 
-add_filter( 'http_request_args', 'business_dont_update_theme', 5, 2 );
 /**
  * Don't Update Theme.
  *
@@ -605,3 +600,4 @@ function business_dont_update_theme( $request, $url ) {
 	return $request;
 
 }
+add_filter( 'http_request_args', 'business_dont_update_theme', 5, 2 );
