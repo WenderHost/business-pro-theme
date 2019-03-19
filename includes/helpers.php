@@ -466,34 +466,22 @@ function business_minify_css( $css ) {
  * @return void
  */
 function business_custom_header() {
-
 	$id = '';
 
 	// Get the current page ID.
 	if ( class_exists( 'WooCommerce' ) && is_shop() ) {
-
 		$id = get_option( 'woocommerce_shop_page_id' );
-
 	} elseif ( is_home() ) {
-
 		$id = get_option( 'page_for_posts' );
-
 	} elseif ( is_singular() ) {
-
 		$id = get_the_id();
-
 	}
 
 	$url = get_the_post_thumbnail_url( $id, 'hero' );
-
-	if ( ! $url ) {
-
+	if ( ! $url )
 		$url = get_header_image();
 
-	}
-
 	return sprintf( 'style="background-image: url(%s)"', esc_url( $url ) );
-
 }
 
 /**
@@ -504,6 +492,17 @@ function business_custom_header() {
  * @return void
  */
 function business_page_header_open() {
+	global $post;
+	$overlay_transparency = get_post_meta( $post->ID,'overlay_transparency', true );
+	$overlay_transparency = ( is_numeric( $overlay_transparency ) )? $overlay_transparency : 75 ;
+
+	$hero_height = get_post_meta( $post->ID, 'hero_height', true );
+	$hero_height = ( is_numeric( $hero_height ) )? $hero_height : 16 ;
+
+	echo '<style type="text/css">
+	.page-header:before{background-color: rgba(20,30,40,0.' . esc_attr( $overlay_transparency ) . ')}
+	.page-header{height: ' . $hero_height . 'vh}
+</style>';
 	echo '<section class="page-header" role="banner" ' . business_custom_header() . '><div class="wrap">';
 }
 add_action( 'genesis_after_header', 'business_page_header_open', 20 );

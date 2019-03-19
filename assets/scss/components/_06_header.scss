@@ -159,14 +159,20 @@
 
 .page-header {
     color: $white;
-    padding: 12rem 0 6rem;
+    /*padding: 12rem 0 6rem;*/
+    padding-top: 1rem;
     text-align: center;
     background-size: cover;
     background-position: center;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     @include overlay;
     @include breakpoint(sm) {
-        padding: 5rem 0 3rem;
+        /*padding: 5rem 0 3rem;*/
     }
     .wrap {
         position: relative;

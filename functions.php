@@ -290,6 +290,9 @@ function business_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'business_scripts_styles', 99 );
 
+// Load Advanced Custom Fields functions.
+include_once( get_stylesheet_directory() . '/includes/acf.php' );
+
 // Load theme helper functions.
 include_once( get_stylesheet_directory() . '/includes/helpers.php' );
 

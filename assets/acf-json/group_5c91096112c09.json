@@ -1,0 +1,81 @@
+{
+    "key": "group_5c91096112c09",
+    "title": "Page Header",
+    "fields": [
+        {
+            "key": "field_5c910975efe6e",
+            "label": "Instructions",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Update the header background image via the \"Featured Image\" under the \"Document\" tab in the right sidebar. Size your images at <code>1920px<\/code> wide by at least <code>160px<\/code> high (higher if you size your hero unit above 16vh).\r\n\r\nBelow you can adjust the transparency of the background overlay and the height of the hero unit.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5c910a00efe6f",
+            "label": "Overlay Transparency",
+            "name": "overlay_transparency",
+            "type": "range",
+            "instructions": "Control the transparency of the overlay that appears over the background image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 75,
+            "min": "",
+            "max": "",
+            "step": "",
+            "prepend": "",
+            "append": "%"
+        },
+        {
+            "key": "field_5c910a86efe70",
+            "label": "Hero Height",
+            "name": "hero_height",
+            "type": "range",
+            "instructions": "Height in \"viewport height\" (vh) units. By default, the hero unit is 16vh.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 16,
+            "min": "",
+            "max": "",
+            "step": "",
+            "prepend": "",
+            "append": "vh"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1553016648
+}
